@@ -20,15 +20,15 @@ public class fibbonacciInBase
 					}
 			}
 		
-		public static int changeBase(int num, int  base)
+		public static long changeBase(long num, int  base)
 			{
-				ArrayList<Integer> numArray = new ArrayList<Integer>();
+				ArrayList<Long> numArray = new ArrayList<Long>();
 				while(num > 0)
 					{
 						numArray.add(0, num % base);;
 						num /= base;
 					}
-				int newNum = 0;
+				long newNum = 0;
 				for(int i = 0; i < numArray.size(); i++)
 					{
 						newNum += numArray.get(i);
