@@ -7,7 +7,9 @@ public class fibbonacciInBase
 		public static void main(String[] args)
 			{
 				System.out.print("How many numbers would you like? ");
-				int x = userInput.nextInt(), a = 1, b = 1, sum = 0;
+				int x = userInput.nextInt();
+				long a = 1, b = 1, sum = 0;
+				long max;
 				System.out.print("What base would you like it in? ");
 				int base = userInput.nextInt();
 				System.out.println("1 \n1");
@@ -16,7 +18,15 @@ public class fibbonacciInBase
 						sum = a + b;
 						b = a;
 						a = sum;
-						System.out.println(changeBase(sum, base));
+						if(sum > a)
+							{
+								long sum1 = 0;
+								long sum2 = 0;
+								//sum1 = sum %
+								System.out.println(changeBase(sum, base));
+							}
+						else
+							System.out.println(changeBase(sum, base));
 					}
 			}
 		
