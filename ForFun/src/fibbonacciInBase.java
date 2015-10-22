@@ -7,43 +7,42 @@ public class fibbonacciInBase
 		public static void main(String[] args)
 			{
 				System.out.print("How many numbers would you like? ");
-				int x = userInput.nextInt();
+				int x = userInput.nextInt(); 
 				long a = 1, b = 1, sum = 0;
-				long max;
 				System.out.print("What base would you like it in? ");
-				int base = userInput.nextInt();
+				long base = userInput.nextInt();
 				System.out.println("1 \n1");
 				for(int i = 2; i < x; i++)
 					{
 						sum = a + b;
 						b = a;
 						a = sum;
-						if(sum > a)
-							{
-								long sum1 = 0;
-								long sum2 = 0;
-								//sum1 = sum %
-								System.out.println(changeBase(sum, base));
-							}
-						else
-							System.out.println(changeBase(sum, base));
+						System.out.println(changeBase(sum, base));
 					}
 			}
-		
-		public static long changeBase(long num, int  base)
+		public static String changeBase(long num, long  base)
 			{
-				ArrayList<Long> numArray = new ArrayList<Long>();
+				ArrayList<Character> numArray = new ArrayList<Character>();
 				while(num > 0)
 					{
-						numArray.add(0, num % base);;
+						int nextChar = (int)(num % base);
+						if(nextChar <= 9)
+							{
+								char number = (char)(nextChar + 48);
+								numArray.add(0, number);;
+							}
+						else
+							{
+								char letter = (char)(nextChar + 87);
+								numArray.add(0, letter);
+							}
 						num /= base;
 					}
-				long newNum = 0;
+				String newNum = "";
 				for(int i = 0; i < numArray.size(); i++)
 					{
-						newNum += numArray.get(i);
-						if(i < numArray.size() - 1)
-							newNum *= 10;
+						char next = numArray.get(i);
+						newNum += next;
 					}
 					
 				return newNum;
